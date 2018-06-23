@@ -1,18 +1,19 @@
-var express = require('express');
-var mysql = require('mysql');
+var express = require("express");
+var mysql = require("mysql");
 
-import {configureServer} from "./configuration";
-import {initRoutes} from "./routes";
+import { configureServer } from "./configuration";
+import { initRoutes } from "./routes";
 
-var app = express();
+function run(port) {
+  var app = express();
 
-configureServer(app);
-initRoutes(app);
+  configureServer(app);
+  initRoutes(app);
 
-app.listen(1111);
-console.log('Script started on port 1111');
+  app.listen(port);
+  console.log(`Script started on port ${port}`);
+}
 
-var jsonObject = {
-    data: []
+export const Server = {
+  run
 };
-
